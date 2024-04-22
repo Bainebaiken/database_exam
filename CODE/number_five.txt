@@ -1,0 +1,79 @@
+DROP TABLE IF EXISTS students;
+DROP TABLE IF EXISTS courses;
+CREATE TABLE Students(
+Sno VARCHAR(100) NOT NULL,
+Sname VARCHAR(255) NOT NULL,
+SGPA INT,
+Scity VARCHAR(200),
+Cno VARCHAR(100)
+);
+INSERT INTO Students( Sno, Sname, SGPA, Scity, Cno)
+VALUES
+     ('S1', 'Saman', 2.60, 'Kegalle', 'C1'),
+('S2', 'Kamal', 2.45, 'Kandy', 'C2'),
+('S3', 'Joe', 3.20, 'Galle', 'C3'),
+('S4', 'Ruwan', 4.00, 'Kandy', 'C1'),
+('S5', 'Asela', 3.50, 'Jaffna', 'C4'),
+('S6', 'Asanka', 2.88, 'Galle', 'C2'),
+('S7', 'Wasana', 2.75, 'Colombo', 'C3'),
+('S8', 'Dilini', 3.35, 'Kandy', 'C1'),
+('S9', 'Aruna', 2.76, 'Galle', 'C4'),
+('S10', 'Gavani', 3.00, 'Jaffna', 'C4');
+
+
+CREATE TABLE courses(
+Cno VARCHAR(100),
+Cname VARCHAR(255) NOT NULL,
+Cduration INT
+);
+INSERT INTO courses(Cno, Cname, Cduration)
+VALUES
+    ('C1', 'HNDA', 4),
+('C2', 'HNDIT', 2),
+('C3', 'HNDM', 3),
+('C4', 'HNDE', 2);
+SELECT * FROM students;
+SELECT * FROM courses;
+
+PARTA
+SELECT 
+  Sname, SGPA 
+FROM 
+   Students;
+   
+   PARTB
+SELECT 
+   Sname 
+FROM 
+   Students 
+WHERE 
+  SGPA > 3.00;
+  
+  PARTC
+SELECT Cno, COUNT(*) as NumberOfStudents
+FROM Students
+GROUP BY Cno;
+
+  PARTD
+SELECT sname, SGPA, cname
+FROM students
+JOIN courses ON students.Cno = courses.Cno;
+ 
+ PARTE
+SELECT * 
+FROM Students 
+ORDER BY SGPA ASC;
+
+PARTF
+    The DBA works with stakeholders to understand the data requirements, including the types of data to be stored,
+  the relationships between data
+    The DBA creates a logical data model that outlines the structure of the database like tables,columns,relationships.
+    The DBA normalizes the database design to eliminate data redundancy, improve data consistency
+and reduce the risk of data anomalies.
+    The DBA translates the logical data model into a physical database design, including selecting appropriate data types,
+indexes, and storage structures.
+    The DBA should design the database with performance in mind, including considerations for database size, indexing
+    The DBA should design the database with security in mind, including considerations for user access, 
+    data encryption, and backup and recovery strategies.
+    The DBA should document the database design, including the data model, normalization rules, 
+    and performance optimization strategies

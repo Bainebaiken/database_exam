@@ -1,0 +1,57 @@
+DROP TABLE IF EXISTS TV_Series;
+DROP TABLE IF EXISTS Episodes;
+DROP TABLE IF EXISTS Actors;
+DROP TABLE IF EXISTS transmissions;
+DROP TABLE IF EXISTS  Directors;
+
+CREATE TABLE TV_Series (
+    series_id INT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    genre VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Episodes (
+    episode_id INT PRIMARY KEY,
+    series_id INT NOT NULL,
+    episode_no INT NOT NULL,
+    length INT NOT NULL,
+    director_id INT NOT NULL,
+    FOREIGN KEY (series_id) REFERENCES TV_Series(series_id),
+    FOREIGN KEY (director_id) REFERENCES Directors(director_id)
+);
+
+CREATE TABLE Actors (
+    actor_id INT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    dob DATE NOT NULL
+);
+
+CREATE TABLE Directors (
+    director_id INT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    dob DATE NOT NULL
+);
+
+CREATE TABLE Transmissions (
+    transmission_id INT PRIMARY KEY,
+    episode_id INT NOT NULL,
+    transmission_date DATE NOT NULL,
+    FOREIGN KEY (episode_id) REFERENCES Episodes(episode_id)
+);
+INSERT INTO TV_Series( series_id ,title ,genre )
+VALUES
+  ('102','silversword','book'),
+   ('103','liver btn','writer'),
+   ('104','nolonger at ease','reader');
+	
+INSERT INTO Episodes( episode_id,series_id,episode_no,length,director_id )
+VALUES
+  ('222','102','444','555','666'),
+   ('223','103','445','556','667'),
+   ('224','104','446','557','668') ;
+INSERT INTO Actors( actor_id ,name ,dob DATE 
+);
+VALUES
+  ('112','silversword','2020-8-8'),
+   ('113','liver btn','2020-6-9'),
+   ('114','nolonger at ease','2023-7-9'); 
